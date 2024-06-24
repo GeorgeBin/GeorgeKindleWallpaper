@@ -49,3 +49,4 @@ try:
 except Exception as e:
     print(f"Failed to process image: {e}")
     exit(1)
+
