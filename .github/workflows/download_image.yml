@@ -21,9 +21,9 @@ jobs:
         python-version: '3.x'
 
     - name: Install dependencies
-      run: pip install requests
+      run: pip install requests Pillow
 
-    - name: Download and save image
+    - name: Download and process image
       run: python ./download_image.py
 
     - name: Commit and push changes
@@ -32,6 +32,6 @@ jobs:
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git add images/
+        git add Wallpaper/today.png
         git commit -m 'Add daily image'
         git push
