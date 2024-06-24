@@ -41,7 +41,7 @@ try:
 
         # 压缩图片
         target_width, target_height = 758, 1024
-        resized_img = cropped_img.resize((target_width, target_height), Image.ANTIALIAS)
+        resized_img = cropped_img.resize((target_width, target_height), Image.LANCZOS)
 
         # 保存为 PNG
         resized_img.save(output_filename, "PNG")
@@ -49,4 +49,3 @@ try:
 except Exception as e:
     print(f"Failed to process image: {e}")
     exit(1)
-
