@@ -1,0 +1,37 @@
+name: Download Daily Image
+
+on:
+  schedule:
+    - cron: '0 15 * * *'  # UTC时间每天11点(北京时间夜里11点)
+  push:
+    branches:
+      - main
+
+jobs:
+  download_image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Download and save image
+      run: python download_image.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add .
+        git commit -m 'Add daily image'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
