@@ -14,7 +14,7 @@ url = f"https://img.owspace.com/Public/uploads/Download/{year}/{month_day}.jpg"
 # 保存路径
 filename = f"images/{tomorrow.strftime('%Y%m%d')}.jpg"
 output_dir = "Wallpaper"
-output_filename = os.path.join(output_dir, "today.png")
+output_filename = os.path.join(output_dir, "next.png")
 
 # 创建输出目录
 os.makedirs(output_dir, exist_ok=True)
