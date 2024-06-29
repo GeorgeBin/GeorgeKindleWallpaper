@@ -2,7 +2,7 @@ name: Download Daily Image
 
 on:
   schedule:
-    - cron: '0 15 * * *'  # UTC时间每天11点(北京时间夜里11点)
+    - cron: '0 15 * * *'  # UTC时间15点=北京时间23点（+8 为北京时间）
   push:
     branches:
       - main
@@ -32,6 +32,6 @@ jobs:
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git add Wallpaper/next.png
-        git commit -m 'Add daily image'
+        git add .
+        git commit -m 'daily update'
         git push
