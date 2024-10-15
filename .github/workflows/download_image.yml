@@ -2,7 +2,7 @@ name: Download Daily Image
 
 on:
   schedule:
-    - cron: '0 15 * * *'  # UTC时间15点=北京时间23点（+8 为北京时间）
+    # - cron: '0 15 * * *'  # UTC时间15点=北京时间23点（+8 为北京时间）
   push:
     branches:
       - main
